@@ -3,20 +3,23 @@
 import typer
 from rich.console import Console
 
-from stooqpy import utils
+from . import config
+
+# from stooqpy import utils
 
 app = typer.Typer()
 console = Console()
 
 
-@app.command()
-def main():
-    """Console script for stooqpy."""
-    console.print("Replace this message by putting your code into "
-               "stooqpy.cli.main")
-    console.print("See Typer documentation at https://typer.tiangolo.com/")
-    utils.do_something_useful()
+@app.command(help="Inicjuje pliki konfiguracyjne w Dokumentach")
+def init_config():
+    config.initialize_config()
 
 
 if __name__ == "__main__":
     app()
+
+    # console.print("Replace this message by putting your code into "
+    #            "stooqpy.cli.main")
+    # console.print("See Typer documentation at https://typer.tiangolo.com/")
+    # # utils.do_something_useful()

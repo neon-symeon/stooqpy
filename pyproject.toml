@@ -1,21 +1,55 @@
+# ##
+# Ta sekcja zawiera standardowe, oficjalne metadane o pakiecie, zdefiniowane
+# w dokumentach PEP 621. Każde nowoczesne narzędzie do budowania pakietów
+# (jak setuptools, flit czy poetry) odczytuje te informacje.
+
 [project]
 name = "stooqpy"
-version = "0.1.0"
-description = "later"
+version = "0.0.2"
+description = "Automatyzuje pobieranie danych z serwisu stooq.pl do lokalnej bazy danych w SQLite."
 readme = "README.md"
+
 authors = [
   {name = "Szymon Jan Marek", email = "szymon.jan.marek@gmail.com"}
 ]
 maintainers = [
   {name = "Szymon Jan Marek", email = "szymon.jan.marek@gmail.com"}
 ]
+
 classifiers = [
-    # TODO
+    "Development Status :: 3 - Alpha",
+
+    # Dla kogo jest ten projekt
+    "Intended Audience :: Developers",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Intended Audience :: Education",
+
+    # Licencja (musi pasować do tej zadeklarowanej wcześniej)
+    "License :: OSI Approved :: MIT License",
+
+    # Wspierane wersje Pythona
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+
+    # System operacyjny
+    "Operating System :: OS Independent",
+
+    # Tematyka projektu
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Office/Business :: Financial :: Investment",
 ]
+
 license = {text = "MIT"}
+
 dependencies = [
-  "typer"
+  "typer",
+  "platformdirs",
+  "ruamel.yaml",
+  "pandas",
 ]
+
 requires-python = ">= 3.10"
 
 [project.optional-dependencies]
@@ -35,13 +69,27 @@ homepage = "https://github.com/neon-symeon/stooqpy"
 [project.scripts]
 stooqpy = "stooqpy.cli:app"
 
+
+# ###
+# Sekcja [tool] to standardowe miejsce na konfigurację narzędzi firm trzecich.
+
+# Dawniej każdy program (linter, formater, system do budowania) wymagał własnego pliku
+# konfiguracyjnego w głównym folderze projektu (np. .isort.cfg, setup.cfg, .coveragerc).
+# Powodowało to straszny bałagan.
+
+# pyproject.toml wprowadził tabelę [tool], w której każde narzędzie może umieścić swoją
+# własną konfigurację w dedykowanej podsekcji, np. [tool.ruff], [tool.pytest],
+# [tool.setuptools]. Dzięki temu jeden plik (pyproject.toml) przechowuje konfigurację
+# dla całego ekosystemu deweloperskiego, co ogromnie porządkuje projekt.
+
+
 [tool.ty]
 # All rules are enabled as "error" by default; no need to specify unless overriding.
 # Example override: relax a rule for the entire project (uncomment if needed).
 # rules.TY015 = "warn"  # For invalid-argument-type, warn instead of error.
 
 [tool.ruff]
-line-length = 120
+line-length = 80
 
 [tool.ruff.lint]
 select = [
@@ -55,3 +103,12 @@ select = [
 
 [tool.uv]
 package = true
+
+# ##
+# Wyszukiwanie template'ów plików systemowych.
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"stooqpy" = ["templates/*.yaml", "templates/*.py"]
