@@ -9,7 +9,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "stooqpy"
-version = "0.0.3"
+version = "0.0.4"
 description = "Automatyzuje pobieranie danych z serwisu stooq.pl do lokalnej bazy danych w SQLite."
 readme = "README.md"
 
