@@ -1,18 +1,18 @@
 # stooqpy
 
-![PyPI version](https://img.shields.io/pypi/v/stooqpy.svg)
-[![Documentation Status](https://readthedocs.org/projects/stooqpy/badge/?version=latest)](https://stooqpy.readthedocs.io/en/latest/?version=latest)
+[![PyPI version](https://img.shields.io/pypi/v/stooqpy.svg)](https://pypi.org/project/stooqpy/)
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 
-later
+Pakiet **stooqpy** umożliwia wygodne korzystanie z danych finansowych serwisu [stooq.pl](https://stooq.pl).
 
-* PyPI package: https://pypi.org/project/stooqpy/
-* Free software: MIT License
-* Documentation: https://stooqpy.readthedocs.io.
+👉 Główna idea:
+- ułatwia **pobieranie i przechowywanie** wysokiej jakości danych giełdowych z serwisu stooq.pl,
+- dane gromadzone są w lekkiej i wydajnej bazie danych opartej na SQLite,
+- stooqpy oferuje także możliwość pobierania danych przez API stooq.pl, ale preferowanym podejściem pozostaje półautomatyczne, bo daje wyższą jakość i dokładność danych.
 
-## Features
+---
 
-* TODO
+## Instalacja
 
-## Credits
-
-This package was created with [Cookiecutter](https://github.com/audreyfeldroy/cookiecutter) and the [audreyfeldroy/cookiecutter-pypackage](https://github.com/audreyfeldroy/cookiecutter-pypackage) project template.
+```bash
+pip install stooqpy
