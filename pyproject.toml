@@ -9,7 +9,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "stooqpy"
-version = "0.0.1"
+version = "0.0.2"
 description = "Automatyzuje pobieranie danych z serwisu stooq.pl do lokalnej bazy danych w SQLite."
 readme = "README.md"
 
@@ -32,7 +32,11 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
 
     # Wspierane wersje Pythona
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
 
     # System operacyjny
     "Operating System :: OS Independent",
@@ -44,7 +48,7 @@ classifiers = [
 
 license = {text = "MIT"}
 
-requires-python = ">= 3.10"
+requires-python = ">= 3.08"
 
 dependencies = [
   "typer",
