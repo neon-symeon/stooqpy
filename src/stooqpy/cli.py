@@ -1,25 +1,44 @@
 """Console script for stooqpy."""
-
 import typer
 from rich.console import Console
 
 from . import config
 
-# from stooqpy import utils
 
-app = typer.Typer()
-console = Console()
+app = typer.Typer(help="CLI dla pakietu stooqpy", no_args_is_help=True)
+
+out = Console()
+err = Console(stderr=True)
 
 
-@app.command(help="Inicjuje pliki konfiguracyjne w Dokumentach")
+@app.command(
+        "init-config",
+        help="Inicjuje pliki konfiguracyjne w folderze Dokumenty")
 def init_config():
-    config.initialize_config()
+    """
+    Inicjuje pliki konfiguracyjne (jeśli ich brakuje).
+    """
+    try:
+        config.initialize_config()
+        out.print(
+            "[green]Pliki konfiguracyjne zostały utworzone "
+            "(jeśli brakowało).[/green]"
+        )
+    except Exception as ex:
+        err.print(f"[red]Błąd podczas inicjalizacji: {ex}[/red]")
+        raise typer.Exit(code=1)
+
+
+@app.command("noop", help="Nic nie robi, przykład dodatkowej komendy")
+def noop():
+    """Pusta komenda dla testów wielokomendowego CLI."""
+    pass
+
+
+def main():
+    """Punkt wejścia dla CLI."""
+    app()
 
 
 if __name__ == "__main__":
-    app()
-
-    # console.print("Replace this message by putting your code into "
-    #            "stooqpy.cli.main")
-    # console.print("See Typer documentation at https://typer.tiangolo.com/")
-    # # utils.do_something_useful()
+    main()
