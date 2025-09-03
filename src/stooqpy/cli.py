@@ -4,7 +4,6 @@ from rich.console import Console
 
 from . import config
 
-
 app = typer.Typer(help="CLI dla pakietu stooqpy", no_args_is_help=True)
 
 out = Console()
@@ -26,7 +25,7 @@ def init_config():
         )
     except Exception as ex:
         err.print(f"[red]Błąd podczas inicjalizacji: {ex}[/red]")
-        raise typer.Exit(code=1)
+        raise typer.Exit(code=1) from None
 
 
 @app.command("noop", help="Nic nie robi, przykład dodatkowej komendy")

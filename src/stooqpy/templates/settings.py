@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Ustawienia aplikacji i parametry domyślne.
 
@@ -9,8 +8,8 @@ Przechowuje:
 
 Wspólne źródło konfiguracji dla wszystkich modułów aplikacji.
 """
-from pathlib import Path
 
+from pathlib import Path
 
 # ###########################################################################
 # ## DANE KONFIGURACYJNE - dostarczane przez usera w pliku yaml

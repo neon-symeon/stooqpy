@@ -1,11 +1,11 @@
-import pytest
 import shutil
-from types import SimpleNamespace
 from contextlib import contextmanager
 from textwrap import dedent
+from types import SimpleNamespace
+
+import pytest
 
 from src.stooqpy import config
-
 
 # ## FIXTURES
 

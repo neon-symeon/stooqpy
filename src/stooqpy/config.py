@@ -1,10 +1,12 @@
 """ Instaluje pliki konfiguracyjne w Dokumentach użytkownika."""
 
+import importlib.resources as pkg_resources
 import os
 import shutil
 from pathlib import Path
+
 from platformdirs import user_documents_dir
-import importlib.resources as pkg_resources
+
 from . import templates
 
 # Tworzy nazwę podfolderu, który zostanie utworzony w 'Dokumentach'
