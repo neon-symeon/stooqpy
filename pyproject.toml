@@ -11,11 +11,6 @@ dynamic = ["version"]
 description = "Automatyzuje pobieranie wysokiej jakości darmowych danych z serwisu stooq.pl."
 readme = "README.md"
 
-# automatyczny update wersji pakietu cz.2/2
-[tool.setuptools_scm]
-version_scheme = "guess-next-dev"
-local_scheme = "no-local-version"
-
 authors = [
   {name = "Szymon Jan Marek", email = "szymon.jan.marek@gmail.com"}
 ]
@@ -96,3 +91,8 @@ where = ["src"]
 
 [tool.setuptools.package-data]
 "stooqpy" = ["templates/*.yaml", "templates/*.py"]
+
+# automatyczny update wersji pakietu cz.2/2
+[tool.setuptools_scm]
+version_scheme = "guess-next-dev"
+local_scheme = "no-local-version"
