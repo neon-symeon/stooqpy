@@ -1,22 +1,22 @@
-# ##
 # from PEP 621.
-# Każde nowoczesne narzędzie do budowania pakietów (np. setuptools, flit,
-# poetry) odczytuje te informacje.
 
 [build-system]
-requires = ["setuptools>=61", "wheel"]
+requires = ["setuptools>=61", "wheel", "setuptools-scm[toml]>=8"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "stooqpy"
-version = "0.0.4"
-description = "Automatyzuje pobieranie danych z serwisu stooq.pl do lokalnej bazy danych w SQLite."
+# version = "0.0.6" - automatyczny update wersji pakietu cz. 1/2
+dynamic = ["version"]
+description = "Automatyzuje pobieranie wysokiej jakości darmowych danych z serwisu stooq.pl."
 readme = "README.md"
 
+# automatyczny update wersji pakietu cz.2/2
+[tool.setuptools_scm]
+version_scheme = "guess-next-dev"
+local_scheme = "no-local-version"
+
 authors = [
-  {name = "Szymon Jan Marek", email = "szymon.jan.marek@gmail.com"}
-]
-maintainers = [
   {name = "Szymon Jan Marek", email = "szymon.jan.marek@gmail.com"}
 ]
 
@@ -48,13 +48,12 @@ classifiers = [
 
 license = {text = "MIT"}
 
-requires-python = ">= 3.08"
+requires-python = ">= 3.8"
 
 dependencies = [
   "typer",
   "platformdirs",
   "ruamel.yaml",
-  "pandas",
 ]
 
 [project.optional-dependencies]
